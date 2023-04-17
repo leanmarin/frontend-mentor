@@ -28,12 +28,12 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
-        printWidth: 100,
+        /* printWidth: 100, */
         trailingComma: "all",
         tabWidth: 2,
         semi: true,
         singleQuote: false,
-        bracketSpacing: false,
+        bracketSpacing: true,
         arrowParens: "always",
         endOfLine: "auto",
       },
@@ -49,7 +49,16 @@ module.exports = {
     "import/order": [
       "warn",
       {
-        groups: ["type", "builtin", "object", "external", "internal", "parent", "sibling", "index"],
+        groups: [
+          "type",
+          "builtin",
+          "object",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
         pathGroups: [
           {
             pattern: "~/**",
@@ -72,9 +81,13 @@ module.exports = {
     ],
     "padding-line-between-statements": [
       "warn",
-      {blankLine: "always", prev: "*", next: "return"},
-      {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
-      {blankLine: "never", prev: ["const", "let", "var"], next: ["const", "let", "var"]},
+      { blankLine: "always", prev: "*", next: "return" },
+      { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
+      {
+        blankLine: "never",
+        prev: ["const", "let", "var"],
+        next: ["const", "let", "var"],
+      },
     ],
   },
 };
