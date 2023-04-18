@@ -1,14 +1,14 @@
-import { HiPlay } from "react-icons/hi2";
-import { HiOutlineExternalLink } from "react-icons/hi";
-import { US, GB } from "country-flag-icons/react/3x2";
+import { HiPlay } from 'react-icons/hi2'
+import { HiOutlineExternalLink } from 'react-icons/hi'
+import { US, GB } from 'country-flag-icons/react/3x2'
 
 function ResultsPane() {
   return (
     <div className="flex flex-col gap-5">
-      <main className="flex justify-between items-center">
+      <main className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold mb-1">keyboard</h1>
-          <p className="text-purple-600 text-xl">
+          <h1 className="mb-1 text-4xl font-bold">keyboard</h1>
+          <p className="text-xl text-purple-600">
             <GB className="inline h-3 mr-1" />
             /ki:bo:d/
           </p>
@@ -18,10 +18,10 @@ function ResultsPane() {
         </div>
       </main>
       <section className="flex flex-col gap-4">
-        <h2 className="flex gap-4 text-xl italic items-center font-semibold">
+        <h2 className="flex items-center gap-4 text-xl italic font-semibold">
           noun <span className="w-full h-[2px] bg-gray-200" />
         </h2>
-        <h3 className="text-md text-gray-400">Meaning</h3>
+        <h3 className="text-gray-400 text-md">Meaning</h3>
         <dl className="flex flex-col gap-4 [&>dd]:ml-5 [&>dd]:list-item [&>dd::marker]:text-purple-600">
           <dd>
             (etc.) A set of keys used to operate a typewriter, computer etc.
@@ -37,18 +37,18 @@ function ResultsPane() {
             keyboard device.
           </dd>
         </dl>
-        <p className="text-md text-gray-400">
-          Synonymes{" "}
-          <span className="text-purple-600 ml-5 font-bold">
+        <p className="text-gray-400 text-md">
+          Synonymes{' '}
+          <span className="ml-5 font-bold text-purple-600">
             electronic keyboard
           </span>
         </p>
       </section>
       <section className="flex flex-col gap-4">
-        <h2 className="flex gap-4 text-xl italic items-center font-semibold">
+        <h2 className="flex items-center gap-4 text-xl italic font-semibold">
           verb <span className="w-full h-[2px] bg-gray-200" />
         </h2>
-        <h3 className="text-md text-gray-400">Meaning</h3>
+        <h3 className="text-gray-400 text-md">Meaning</h3>
         <dl className="flex flex-col gap-4 [&>dd]:ml-5 [&>dd]:list-item [&>dd::marker]:text-purple-600 [&>span]:ml-5  [&>span]:text-gray-400">
           <dd>To type on a computer keyboard. </dd>
           <span className="italic">
@@ -60,17 +60,17 @@ function ResultsPane() {
       <section className="[&>p]:text-gray-400">
         <p>Source</p>
         <a
-          className="text-sm underline flex items-center"
+          className="flex items-center text-sm underline"
           href="https://en.wiktionary.org/wiki/keyboard"
           rel="noreferrer"
           target="_blank"
         >
           https://en.wiktionary.org/wiki/keyboard
-          <HiOutlineExternalLink className="inline ml-1 text-gray-500 text-base" />
+          <HiOutlineExternalLink className="inline ml-1 text-base text-gray-500" />
         </a>
       </section>
     </div>
-  );
+  )
 }
 
-export default ResultsPane;
+export default ResultsPane
