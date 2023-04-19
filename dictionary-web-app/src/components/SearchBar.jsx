@@ -1,8 +1,8 @@
-import { useId } from "react";
-import { HiOutlineSearch } from "react-icons/hi";
+import { useId } from 'react'
+import { HiOutlineSearch } from 'react-icons/hi'
 
 function SearchBar() {
-  const searchInput = useId();
+  const searchInput = useId()
 
   return (
     <form className="w-full p-3 rounded-2xl bg-gray-100 flex gap-3">
@@ -10,7 +10,7 @@ function SearchBar() {
         Search
       </label>
       <input
-        className="bg-inherit w-full font-bold text-black text-sm"
+        className="bg-inherit w-full font-bold text-black text-sm md:text-base"
         id={searchInput}
         type="text"
         value="keyboard"
@@ -19,7 +19,7 @@ function SearchBar() {
         <HiOutlineSearch className="text-purple-600 text-2xl" />
       </button>
     </form>
-  );
+  )
 }
 
-export default SearchBar;
+export default SearchBar

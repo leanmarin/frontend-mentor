@@ -6,9 +6,9 @@ function ResultsPane() {
   return (
     <div className="flex flex-col gap-5">
       <main className="flex items-center justify-between">
-        <div>
-          <h1 className="mb-1 text-4xl font-bold">keyboard</h1>
-          <p className="text-xl text-purple-600">
+        <div className="flex gap-2 flex-col">
+          <h1 className="mb-1 text-4xl font-bold md:text-5xl">keyboard</h1>
+          <p className="text-xl text-purple-600 md:text-2xl">
             <GB className="inline h-3 mr-1" />
             /ki:bo:d/
           </p>
@@ -17,11 +17,11 @@ function ResultsPane() {
           <HiPlay className="text-2xl" />
         </div>
       </main>
-      <section className="flex flex-col gap-4">
-        <h2 className="flex items-center gap-4 text-xl italic font-semibold">
+      <section className="flex flex-col gap-6">
+        <h2 className="flex items-center gap-4 md:text-lg italic font-semibold">
           noun <span className="w-full h-[2px] bg-gray-200" />
         </h2>
-        <h3 className="text-gray-400 text-md">Meaning</h3>
+        <h3 className="text-gray-400 text-sm md:text-base">Meaning</h3>
         <dl className="flex flex-col gap-4 [&>dd]:ml-5 [&>dd]:list-item [&>dd::marker]:text-purple-600">
           <dd>
             (etc.) A set of keys used to operate a typewriter, computer etc.
@@ -44,11 +44,11 @@ function ResultsPane() {
           </span>
         </p>
       </section>
-      <section className="flex flex-col gap-4">
-        <h2 className="flex items-center gap-4 text-xl italic font-semibold">
+      <section className="flex flex-col gap-6">
+        <h2 className="flex items-center gap-4 md:text-lg italic font-semibold">
           verb <span className="w-full h-[2px] bg-gray-200" />
         </h2>
-        <h3 className="text-gray-400 text-md">Meaning</h3>
+        <h3 className="text-gray-400 text-sm md:text-base">Meaning</h3>
         <dl className="flex flex-col gap-4 [&>dd]:ml-5 [&>dd]:list-item [&>dd::marker]:text-purple-600 [&>span]:ml-5  [&>span]:text-gray-400">
           <dd>To type on a computer keyboard. </dd>
           <span className="italic">
