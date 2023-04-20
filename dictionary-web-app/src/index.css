@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h3 {
+    @apply dark:text-gray-300
+  }
+
+  .text-purple-600 {
+    @apply dark:text-purple-400
+  }
+
+  .text-gray-500 {
+    @apply dark:text-gray-300
+  }
+
+  .bg-purple-200 {
+    @apply dark:bg-purple-950
+  }
+}

@@ -19,7 +19,7 @@ function ResultsPane() {
       </main>
       <section className="flex flex-col gap-6">
         <h2 className="flex items-center gap-4 md:text-lg italic font-semibold">
-          noun <span className="w-full h-[2px] bg-gray-200" />
+          noun <span className="w-full h-[2px] bg-gray-200 dark:bg-gray-900" />
         </h2>
         <h3 className="text-gray-400 text-sm md:text-base">Meaning</h3>
         <dl className="flex flex-col gap-4 [&>dd]:ml-5 [&>dd]:list-item [&>dd::marker]:text-purple-600">
@@ -46,7 +46,7 @@ function ResultsPane() {
       </section>
       <section className="flex flex-col gap-6">
         <h2 className="flex items-center gap-4 md:text-lg italic font-semibold">
-          verb <span className="w-full h-[2px] bg-gray-200" />
+          verb <span className="w-full h-[2px] bg-gray-200 dark:bg-gray-900" />
         </h2>
         <h3 className="text-gray-400 text-sm md:text-base">Meaning</h3>
         <dl className="flex flex-col gap-4 [&>dd]:ml-5 [&>dd]:list-item [&>dd::marker]:text-purple-600 [&>span]:ml-5  [&>span]:text-gray-400">
@@ -56,7 +56,7 @@ function ResultsPane() {
           </span>
         </dl>
       </section>
-      <span className="w-full h-[2px] bg-gray-200" />
+      <span className="w-full h-[2px] bg-gray-200 dark:bg-gray-900" />
       <section className="[&>p]:text-gray-400">
         <p>Source</p>
         <a
