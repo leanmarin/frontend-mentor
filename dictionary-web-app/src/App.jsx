@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { LeapFrog } from '@uiball/loaders'
 
 import './App.css'
 import { Header, SearchBar, ResultsPane } from './components'
@@ -30,14 +31,23 @@ function App() {
 
   return (
     <div
-      className={`container p-6 md:p-12 mx-auto flex flex-col gap-7 ${activeFont} md:gap-10 lg:max-w-4xl dark:bg-gray-950 dark:text-gray-100`}
+      className={`container p-6 md:p-12 mx-auto flex flex-col gap-7 ${activeFont} md:gap-10 lg:max-w-4xl dark:bg-gray-950 dark:text-gray-100 h-screen`}
     >
       <Header />
       <SearchBar onSubmit={handleSearch} />
-      {fetchStatus === 'idle' && <InitialContent message="Welcome!" />}
-      {fetchStatus === 'fetching' && <InitialContent message="Loading..." />}
-      {fetchStatus === 'success' && <ResultsPane wordData={wordData} />}
-      {fetchStatus === 'not found' && <ErrorContent wordData={wordData} />}
+      <div className="flex-1 grid place-items-center">
+        {fetchStatus === 'idle' && <InitialContent message="Welcome!" />}
+        {fetchStatus === 'fetching' && (
+          <LeapFrog
+            className="place-self-center"
+            color="#9e9e9e" //#8e24aa
+            size={40}
+            speed={1}
+          />
+        )}
+        {fetchStatus === 'success' && <ResultsPane wordData={wordData} />}
+        {fetchStatus === 'not found' && <ErrorContent wordData={wordData} />}
+      </div>
     </div>
   )
 }
