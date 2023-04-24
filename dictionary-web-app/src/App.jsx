@@ -39,6 +39,7 @@ function App() {
     >
       <Header {...preferences} />
       <SearchBar onSubmit={handleSearch} />
+      {fetchStatus === 'success' && <ResultsPane wordData={wordData} />}
       <div className="flex-1 grid place-items-center">
         {fetchStatus === 'idle' && <InitialContent message="Welcome!" />}
         {fetchStatus === 'fetching' && (
@@ -49,7 +50,6 @@ function App() {
             speed={1}
           />
         )}
-        {fetchStatus === 'success' && <ResultsPane wordData={wordData} />}
         {fetchStatus === 'not found' && <ErrorContent wordData={wordData} />}
       </div>
     </div>

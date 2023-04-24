@@ -8,7 +8,9 @@ function AudioPlayer({ src }) {
   return (
     <button
       className={`${
-        !src ? 'bg-gray-200 text-gray-600' : 'bg-purple-200 text-purple-600'
+        !src
+          ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+          : 'bg-purple-200 text-purple-600 active:translate-y-0.5'
       } p-4 aspect-square w-[55px] rounded-full text-center relative`}
       disabled={!src}
       title={`${!src ? 'No audio available' : `Source: ${src}`}`}
