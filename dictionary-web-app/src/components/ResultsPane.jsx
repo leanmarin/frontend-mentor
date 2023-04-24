@@ -1,13 +1,13 @@
-import { HiPlay } from 'react-icons/hi2'
 import { HiOutlineExternalLink } from 'react-icons/hi'
 import { US, GB } from 'country-flag-icons/react/3x2'
 import { Fragment } from 'react'
 
 import RelatedWords from './RelDefinitions'
+import AudioPlayer from './AudioPlayer'
 
 function ResultsPane({ wordData }) {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 w-full">
       <main className="flex items-center justify-between">
         <div className="flex gap-2 flex-col">
           <h1 className="mb-1 text-4xl font-bold md:text-5xl">
@@ -15,12 +15,10 @@ function ResultsPane({ wordData }) {
           </h1>
           <p className="text-xl text-purple-600 md:text-2xl">
             <GB className="inline h-3 mr-1" />
-            {wordData.phonetic}
+            {wordData.phonetics[0].text}
           </p>
         </div>
-        <div className="bg-purple-200 text-purple-600 p-4 aspect-square w-[55px] rounded-full text-center">
-          <HiPlay className="text-2xl" />
-        </div>
+        <AudioPlayer src={wordData.phonetics[0].audio} />
       </main>
       {wordData.meanings.map((meaning, index) => {
         return (

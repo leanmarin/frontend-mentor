@@ -41,7 +41,7 @@ function App() {
           <LeapFrog
             className="place-self-center"
             color="#9e9e9e" //#8e24aa
-            size={40}
+            size={50}
             speed={1}
           />
         )}
