@@ -39,7 +39,7 @@ function App() {
     >
       <Header {...preferences} />
       <SearchBar onSubmit={handleSearch} />
-      {fetchStatus === 'success' && <ResultsPane wordData={wordData} />}
+      {fetchStatus === 'success' && <ResultsPane {...wordData} />}
       <div className="flex-1 grid place-items-center">
         {fetchStatus === 'idle' && <InitialContent message="Welcome!" />}
         {fetchStatus === 'fetching' && (

@@ -5,22 +5,28 @@ import { Fragment } from 'react'
 import RelatedWords from './RelDefinitions'
 import AudioPlayer from './AudioPlayer'
 
-function ResultsPane({ wordData }) {
+function ResultsPane({ word, phonetics, meanings, sourceUrls }) {
+  const phoneticsAvailable = phonetics.length > 0
+
   return (
     <div className="flex flex-col gap-8 w-full">
       <main className="flex items-center justify-between">
         <div className="flex gap-2 flex-col">
-          <h1 className="mb-1 text-4xl font-bold md:text-5xl">
-            {wordData.word}
-          </h1>
-          <p className="text-xl text-purple-600 md:text-2xl">
-            <GB className="inline h-3 mr-1" />
-            {wordData.phonetics[0].text}
-          </p>
+          <h1 className="mb-1 text-4xl font-bold md:text-5xl">{word}</h1>
+          {!phoneticsAvailable ? (
+            <p className="text-xl text-purple-400 md:text-2xl italic">
+              /No phonetics available/
+            </p>
+          ) : (
+            <p className="text-xl text-purple-600 md:text-2xl italic">
+              <GB className="inline h-3 mr-1" />
+              {phonetics[0].text}
+            </p>
+          )}
         </div>
-        <AudioPlayer src={wordData.phonetics[0].audio} />
+        {phoneticsAvailable && <AudioPlayer src={phonetics[0].audio} />}
       </main>
-      {wordData.meanings.map((meaning, index) => {
+      {meanings.map((meaning, index) => {
         return (
           <section
             key={`${meaning.partOfSpeech}-${index}`}
@@ -60,7 +66,7 @@ function ResultsPane({ wordData }) {
       <span className="w-full h-[2px] bg-gray-200 dark:bg-gray-900" />
       <section>
         <h3 className="text-gray-400 text-sm md:text-base mb-4">Source</h3>
-        {wordData.sourceUrls.map((url, index) => {
+        {sourceUrls.map((url, index) => {
           return (
             <a
               key={index}
