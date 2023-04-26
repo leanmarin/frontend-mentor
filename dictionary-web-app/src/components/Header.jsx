@@ -8,7 +8,14 @@ import { BsJournalBookmark } from 'react-icons/bs'
 
 import { LanguageToggle } from '../components'
 
-function Header({ languageVariant, setLanguageVariant }) {
+import DarkModeToggle from './DarkModeToggle'
+
+function Header({
+  languageVariant,
+  setLanguageVariant,
+  setDarkModeOn,
+  darkModeOn,
+}) {
   function handleLanguageChange() {
     setLanguageVariant((languageVariant) =>
       languageVariant === 'UK' ? 'US' : 'UK',
@@ -27,9 +34,7 @@ function Header({ languageVariant, setLanguageVariant }) {
           languageVariant={languageVariant}
           onChange={handleLanguageChange}
         />
-        <span className="pl-2">
-          <HiOutlineMoon className="text-2xl" />
-        </span>
+        <DarkModeToggle darkModeOn={darkModeOn} setDarkModeOn={setDarkModeOn} />
       </div>
     </div>
   )
