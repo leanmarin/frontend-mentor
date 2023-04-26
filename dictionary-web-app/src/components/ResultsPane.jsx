@@ -114,7 +114,7 @@ function ResultsPane({
           return (
             <a
               key={index}
-              className="flex items-center text-sm underline mb-3 text-gray-900"
+              className="flex items-center text-sm underline mb-3 text-gray-900 dark:text-gray-200"
               href={url}
               rel="noreferrer"
               target="_blank"
