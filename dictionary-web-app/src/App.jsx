@@ -10,7 +10,6 @@ import ErrorContent from './components/ErrorContent'
 import useSettings from './hooks/useSettings'
 
 function App() {
-  const [activeFont, setActiveFont] = useState('font-sans')
   // idle | fetching | success | not found
   const [fetchStatus, setFetchStatus] = useState('idle')
   const settings = useSettings()
