@@ -5,8 +5,33 @@ import { Fragment } from 'react'
 import RelatedWords from './RelDefinitions'
 import AudioPlayer from './AudioPlayer'
 
-function ResultsPane({ word, phonetics, meanings, sourceUrls }) {
+function ResultsPane({
+  word,
+  phonetic,
+  phonetics,
+  meanings,
+  sourceUrls,
+  languageVariant,
+}) {
   const phoneticsAvailable = phonetics.length > 0
+
+  function getPhonetics(phonetics) {
+    return phonetics
+      .filter((phonetic) => phonetic.audio !== '')
+      .map((phonetic) => {
+        return {
+          text: phonetic.text,
+          audio: phonetic.audio,
+          variant: phonetic.audio?.match(/uk.mp3$/)
+            ? 'UK'
+            : phonetic.audio?.match(/us.mp3$/)
+            ? 'US'
+            : '',
+        }
+      })
+  }
+
+  let phoneticsArray = getPhonetics(phonetics)
 
   return (
     <div className="flex flex-col gap-8 w-full">
@@ -14,17 +39,36 @@ function ResultsPane({ word, phonetics, meanings, sourceUrls }) {
         <div className="flex gap-2 flex-col">
           <h1 className="mb-1 text-4xl font-bold md:text-5xl">{word}</h1>
           {!phoneticsAvailable ? (
-            <p className="text-xl text-purple-400 md:text-2xl italic">
-              /No phonetics available/
+            <p className="text-lg text-purple-400 md:text-xl tracking-normal">
+              /No pronunciation available/
             </p>
           ) : (
-            <p className="text-xl text-purple-600 md:text-2xl italic">
-              <GB className="inline h-3 mr-1" />
-              {phonetics[0].text}
+            <p className="text-lg text-purple-600 md:text-xl tracking-wider">
+              {languageVariant === 'UK' ? (
+                <GB className="inline h-3 mr-1" />
+              ) : (
+                <US className="inline h-3 mr-1" />
+              )}{' '}
+              {phoneticsArray.find(
+                (phonetic) => phonetic.variant === languageVariant,
+              )?.text ||
+                phonetic || (
+                  <span className="text-lg text-purple-400 md:text-xl tracking-normal">
+                    /No pronunciation available/
+                  </span>
+                )}
             </p>
           )}
         </div>
-        {phoneticsAvailable && <AudioPlayer src={phonetics[0].audio} />}
+        {phoneticsAvailable && (
+          <AudioPlayer
+            src={
+              phoneticsArray.find(
+                (phonetic) => phonetic.variant === languageVariant,
+              )?.audio || ''
+            }
+          />
+        )}
       </main>
       {meanings.map((meaning, index) => {
         return (
