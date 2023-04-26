@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LeapFrog } from '@uiball/loaders'
 
 import './App.css'
+
 import { Header, SearchBar, ResultsPane } from './components'
 import fetchWord from './utils/fetcher'
 import InitialContent from './components/InitialContent'
@@ -29,6 +30,14 @@ function App() {
 
     return setWordData(word[0])
   }
+
+  useEffect(() => {
+    const htmlElement = document.documentElement
+
+    settings.darkModeOn
+      ? htmlElement.classList.add('dark')
+      : htmlElement.classList.remove('dark')
+  }, [settings.darkModeOn])
 
   return (
     <div
